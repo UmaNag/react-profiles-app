@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShowProfile } from './components/ShowProfile';
 import './App.css';
 import { ProfileForm } from './components/ProfileForm';
@@ -38,17 +38,13 @@ export const App: React.FunctionComponent = () => {
     [params]
   );
 
-  const setValues = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      setParams({
-        userName: e.currentTarget.value
-        //userName: e.target[0].value        
+  const setValues = (e: React.FormEvent<HTMLFormElement>) => {
+      setParams({           
+       userName: e.target[0].value        
       });
       e.preventDefault();
-    }, 
-    [params]
-  );
-
+    };
+  
   return (
     <div id="main-container">
       <h1>Simple React Github Profiles App</h1>
