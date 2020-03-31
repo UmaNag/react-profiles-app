@@ -1,9 +1,14 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { App }from './App';
+import { shallow } from 'enzyme';
+import { App } from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App Tests', () => {
+
+  test('Should render the application container', () => {
+    const wrapper = shallow(<App />);
+    const component = wrapper.find('#main-container');
+
+    expect(component.exists()).toBe(true);
+  });
+
+ });
